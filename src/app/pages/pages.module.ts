@@ -11,8 +11,6 @@ import { PagesComponent } from './pages.component';
 import { ProgressComponent } from './progress/progress.component';
 import { Graficas1Component } from './graficas1/graficas1.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { NopagefoundComponent } from './nopagefound/nopagefound.component';
-
 
 
 
@@ -22,14 +20,14 @@ DashboardComponent,
 ProgressComponent,
 Graficas1Component,
 PagesComponent,
-NopagefoundComponent
+
   ],
   exports: [
 DashboardComponent,
 ProgressComponent,
 Graficas1Component,
 PagesComponent,
-NopagefoundComponent
+
 
   ],
   imports: [

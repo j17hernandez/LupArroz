@@ -8,6 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 // Modulos
 import { PagesModule } from './pages/pages.module';
 
+// Componentes
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './login/register.component';
