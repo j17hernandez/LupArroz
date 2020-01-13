@@ -3,27 +3,14 @@ import { NgModule } from '@angular/core';
 
 // RUTAS
 // import { APP_ROUTES } from './app.routes';
-
+import { APP_ROUTES } from './app.routes';
+import { AppRoutingModule } from './app-routing.module';
 // Modulos
 import { PagesModule } from './pages/pages.module';
 
-
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './login/register.component';
-import { NopagefoundComponent } from './pages/nopagefound/nopagefound.component';
-
-import { DashboardComponent } from './pages/dashboard/dashboard.component';
-import { ProgressComponent } from './pages/progress/progress.component';
-import { Graficas1Component } from './pages/graficas1/graficas1.component';
-import { HeaderComponent } from './shared/header/header.component';
-import { SidebarComponent } from './shared/sidebar/sidebar.component';
-import { BreadcrumbsComponent } from './shared/breadcrumbs/breadcrumbs.component';
-import { PagesComponent } from './pages/pages.component';
-
-
-
 
 
 @NgModule({
@@ -31,18 +18,11 @@ import { PagesComponent } from './pages/pages.component';
     AppComponent,
     LoginComponent,
     RegisterComponent,
-  //  NopagefoundComponent,
-  //  DashboardComponent,
-  //  ProgressComponent,
-  //  Graficas1Component,
-  //  BreadcrumbsComponent,
-  //  HeaderComponent,
-  //  SidebarComponent
-  // PagesComponent,
+
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
+    APP_ROUTES,
     PagesModule
   ],
   providers: [],

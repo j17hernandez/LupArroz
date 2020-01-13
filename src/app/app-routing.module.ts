@@ -13,7 +13,7 @@ import { RegisterComponent } from './login/register.component';
 
 
 const routes: Routes = [
-  { path: '',
+/*  { path: '',
   component: PagesComponent,
   children: [
     { path: 'dashboard', component: DashboardComponent},
@@ -22,7 +22,7 @@ const routes: Routes = [
     { path: '', redirectTo: '/dashboard', pathMatch: 'full' }
   ]
 },
-
+*/
 
   { path: 'login', component: LoginComponent},
   { path: 'register', component: RegisterComponent},
