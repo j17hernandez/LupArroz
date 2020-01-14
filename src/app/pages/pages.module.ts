@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+// ng2-charts
+import { ChartsModule } from 'ng2-charts';
 // Modulos
 import { SharedModule } from '../shared/shared.module';
 import { FormsModule } from '@angular/forms';
@@ -40,7 +42,7 @@ PagesComponent,
     SharedModule,
     PAGES_ROUTES,
     FormsModule,
-
+    ChartsModule,
   ]
 })
 export class PagesModule { }
