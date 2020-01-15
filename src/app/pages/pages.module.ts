@@ -17,6 +17,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 
 // Temporal
 import { IncrementadorComponent } from '../components/incrementador/incrementador.component';
+import { GraficoDonaComponent } from '../components/grafico-dona/grafico-dona.component';
 
 
 
@@ -26,14 +27,15 @@ DashboardComponent,
 ProgressComponent,
 Graficas1Component,
 PagesComponent,
-IncrementadorComponent
+IncrementadorComponent,
+GraficoDonaComponent
 
   ],
   exports: [
 DashboardComponent,
 ProgressComponent,
 Graficas1Component,
-PagesComponent,
+PagesComponent
 
 
   ],
@@ -43,6 +45,7 @@ PagesComponent,
     PAGES_ROUTES,
     FormsModule,
     ChartsModule,
+
   ]
 })
 export class PagesModule { }
