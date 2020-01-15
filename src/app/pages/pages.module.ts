@@ -18,6 +18,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 // Temporal
 import { IncrementadorComponent } from '../components/incrementador/incrementador.component';
 import { GraficoDonaComponent } from '../components/grafico-dona/grafico-dona.component';
+import { AccoutSettingsComponent } from './accout-settings/accout-settings.component';
 
 
 
@@ -28,7 +29,8 @@ ProgressComponent,
 Graficas1Component,
 PagesComponent,
 IncrementadorComponent,
-GraficoDonaComponent
+GraficoDonaComponent,
+AccoutSettingsComponent
 
   ],
   exports: [
