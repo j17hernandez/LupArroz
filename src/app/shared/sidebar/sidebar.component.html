@@ -14,18 +14,34 @@
                             <a href="javascript:void()"> <i class="fa fa-user-circle-o"></i> My Profile </a>
                         </li>
                         <li><a href="javascript:void()"><i class="mdi mdi-email"></i> Inbox</a></li>
-                        <li><a href="javascript:void()"><i class="mdi mdi-settings"></i> Account Setting</a></li>
+                        <li><a routerLinkActive="active" routerLink="/account-settings"><i class="mdi mdi-settings"></i> Account Setting</a></li>
                         <li>
-                            <a href="javascript:void()"> <i class="fa fa-power-off"> </i> Logout</a>
+                            <a routerLink="/login"> <i class="fa fa-power-off"> </i> Logout</a>
                         </li>
                     </ul>
                 </li>
+
+                <li class="nav-devider"></li>
+                <li class="nav-small-cap">PERSONAL</li>
+
+                <li *ngFor="let menu of _sidebar.menu">
+                    <a class="has-arrow waves-effect waves-dark" aria-expanded="false"><i [class]="menu.icono"></i><span class="hide-menu">{{menu.titulo}} <span class="label label-rouded label-themecolor pull-right">{{menu.submenu.length}}</span></span></a>
+                    <ul aria-expanded="false" class="collapse">
+                        <li *ngFor="let submenu of menu.submenu">
+                            <a routerLinkActive="active" [routerLink]="[submenu.url]">{{submenu.titulo}} </a></li>
+
+                        <!--  <li><a href="index2.html">Analytical</a></li>
+                        <li><a href="index3.html">Demographical</a></li>
+                        <li><a href="index4.html">Modern</a></li> -->
+                    </ul>
+                </li>
+                <!--
                 <li class="nav-devider"></li>
                 <li class="nav-small-cap">PERSONAL</li>
                 <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="fa  fa-suitcase"></i><span class="hide-menu"> Información <span class="label label-rouded label-themecolor pull-right">4</span></span></a>
                     <ul aria-expanded="false" class="collapse">
                         <li>
-                            <a href="#" class="has-arrow"> <i class="mdi mdi-android-debug-bridge"> </i> Plagas <span class="label label-rounded label-success pull-right">4 Tipos </span></a>
+                            <a href="#" class="has-arrow"> <i class="mdi mdi-android-debug-bridge"> </i> Plagas <span class="label label-rounded label-light-danger pull-right">4 Tipos </span></a>
                             <ul aria-expanded="false" class="collapse">
                                 <li><a href="pages-login.html">Insectos de panoja y granos</a></li>
                                 <li><a href="pages-login-2.html">Insectos de raíz</a></li>
@@ -34,7 +50,7 @@
                             </ul>
                         </li>
                         <li>
-                            <a href="#" class="has-arrow"> <i class="fa fa-medkit"></i> Enfermedades<span class="label label-rounded label-success pull-right">4 </span></a>
+                            <a href="#" class="has-arrow"> <i class="fa fa-medkit"></i> Enfermedades<span class="label label-rounded label-light-danger pull-right">4 </span></a>
 
                             <ul aria-expanded="false" class="collapse">
                                 <li><a href="pages-login.html">Insectos de panoja y granos</a></li>
@@ -48,7 +64,7 @@
                         <li><a href="index4.html">Modern</a></li>
                     </ul>
                 </li>
-
+              -->
             </ul>
         </nav>
         <!-- End Sidebar navigation -->

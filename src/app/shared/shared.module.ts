@@ -12,23 +12,26 @@ import { NopagefoundComponent } from '../pages/nopagefound/nopagefound.component
 
 
 @NgModule({
-  declarations: [
-    BreadcrumbsComponent,
-    HeaderComponent,
-    SidebarComponent,
-    NopagefoundComponent
-
-  ],
-
-  exports: [
-    BreadcrumbsComponent,
-    HeaderComponent,
-    SidebarComponent
-  ],
 
   imports: [
     CommonModule,
     RouterModule
+  ],
+
+  declarations: [
+    NopagefoundComponent,
+    BreadcrumbsComponent,
+    HeaderComponent,
+    SidebarComponent
+
+  ],
+
+  exports: [
+    NopagefoundComponent,
+    BreadcrumbsComponent,
+    HeaderComponent,
+    SidebarComponent
   ]
+
 })
 export class SharedModule { }
