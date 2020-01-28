@@ -15,12 +15,21 @@ import { ProgressComponent } from './progress/progress.component';
 import { Graficas1Component } from './graficas1/graficas1.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 
+// ==============================================
+// Pipe Module
+// =============================================
+
+import { PipesModule } from '../pipes/pipes.module';
+
+
 // Temporal
 import { IncrementadorComponent } from '../components/incrementador/incrementador.component';
 import { GraficoDonaComponent } from '../components/grafico-dona/grafico-dona.component';
 import { AccoutSettingsComponent } from './accout-settings/accout-settings.component';
 import { PromesasComponent } from './promesas/promesas.component';
 import { RxjsComponent } from './rxjs/RxjsComponent';
+import { ProfileComponent } from './profile/profile.component';
+
 
 
 
@@ -34,7 +43,8 @@ IncrementadorComponent,
 GraficoDonaComponent,
 AccoutSettingsComponent,
 PromesasComponent,
-RxjsComponent
+RxjsComponent,
+ProfileComponent
 
   ],
   exports: [
@@ -51,7 +61,7 @@ PagesComponent
     PAGES_ROUTES,
     FormsModule,
     ChartsModule,
-
+    PipesModule
   ]
 })
 export class PagesModule { }

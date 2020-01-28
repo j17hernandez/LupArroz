@@ -5,3 +5,12 @@
 .pointer {
     cursor: pointer;
 }
+
+#file {
+    height: 30px;
+    position: relative;
+}
+
+.w150 {
+    width: 150px;
+}
