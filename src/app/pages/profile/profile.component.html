@@ -3,11 +3,11 @@
     <div class="col-lg-6">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title">Perfil del Usuario</h4>
-                <h6 class="card-subtitle">Nombre Usuario</h6>
+                <h4 class="card-title">Datos del Usuario</h4>
+                <h4 class="card-subtitle">{{usuario.nombre}}</h4>
                 <form ngNativeValidate #f="ngForm" (ngSubmit)="guardar(f.value)" class="form p-t-20">
                     <div class="form-group">
-                        <label for="exampleInputuname">User Name</label>
+                        <label for="exampleInputuname">Nombre Usuario</label>
                         <div class="input-group">
                             <div class="input-group-addon"><i class="ti-user"></i></div>
                             <input [ngModel]="usuario.nombre" name="nombre" type="text" class="form-control" placeholder="Nombre Usuario" required>
@@ -52,7 +52,7 @@
         <div class="card">
             <div class="card-body" align="center">
                 <h4 class="card-title">Fotografía del Usuario</h4>
-                <h6 class="card-subtitle">Nombre Usuario</h6>
+                <b>  <h6 class="card-subtitle">{{usuario.nombre}}</h6></b>
 
                 <img *ngIf="!imagenTemp" [src]="usuario.img | imagen" alt="" class="w150">
                 <img *ngIf="imagenTemp" [src]="imagenTemp" alt="" class="w150">
@@ -63,9 +63,9 @@
                     <input class="form-control-file " (change)="seleccionImage( $event.target.files[0] )" type="file">
                 </div>
 
-                <br> <br>
-                <button (click)="cambiarImagen()" [disabled]="!imagenSubir" type="button" class="btn btn-block btn-success waves-effect waves-light m-r-10">
-          <i class="fa fa-save"></i>
+                <br>
+                <button (click)="cambiarImagen()" [disabled]="!imagenSubir" type="button" class="btn btn-block btn-danger waves-effect waves-light m-r-10">
+          <i class="mdi mdi-update"></i>
               Actualizar Foto
             </button>
 

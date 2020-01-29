@@ -29,6 +29,10 @@ import { AccoutSettingsComponent } from './accout-settings/accout-settings.compo
 import { PromesasComponent } from './promesas/promesas.component';
 import { RxjsComponent } from './rxjs/RxjsComponent';
 import { ProfileComponent } from './profile/profile.component';
+import { UsuariosComponent } from './usuarios/usuarios.component';
+import { HospitalesComponent } from './hospitales/hospitales.component';
+import { MedicosComponent } from './medicos/medicos.component';
+import { ModalUploadComponent } from '../components/modal-upload/modal-upload.component';
 
 
 
@@ -44,7 +48,11 @@ GraficoDonaComponent,
 AccoutSettingsComponent,
 PromesasComponent,
 RxjsComponent,
-ProfileComponent
+ProfileComponent,
+UsuariosComponent,
+HospitalesComponent,
+MedicosComponent,
+ModalUploadComponent
 
   ],
   exports: [

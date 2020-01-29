@@ -141,21 +141,21 @@ logout() {
     return this.http.put(url, usuario)
              .map((resp: any) => {
 
-
-              let usuarioDB: Usuario = resp.usuario;
-
+            if (usuario._id === this.usuario._id ) {
+              const usuarioDB: Usuario = resp.usuario;
               this.guardarStorage(usuarioDB._id, this.token, usuarioDB);
-              swal('Usuario Actualizado Correctamente', usuario.nombre, 'success');
-              return true;
+            }
+
+
+            swal('Usuario Actualizado Correctamente', usuario.nombre, 'success');
+            return true;
 
           });
   }
 
-
-
-
-//   this.usuario = resp.usuario;
-
+// ==============================================
+// Cambiar Imagen de Usuario
+// =============================================
 
 cambiarImagen(archivo: File, id: string ) {
 
@@ -180,5 +180,35 @@ this._subirArchivoService.subirArchivo( archivo, 'usuarios', id)
 
     });
   }
+  // ==============================================
+  // Cargar usuarios con paginación
+  // =============================================
+  cargarUsuarios(desde: number = 1) {
+    const url = URL_SERVICIOS + '/usuario?desde=' + desde;
 
+    return this.http.get(url);
+  }
+// ==============================================
+// Buscar Usuarios
+// =============================================
+  buscarUsuarios(termino: string) {
+    const url = URL_SERVICIOS + '/busqueda/coleccion/usuarios/' + termino;
+    return this.http.get(url)
+        .map((resp: any) => resp.usuarios  );
+  }
+
+  // ==============================================
+  // Borrar Usuarios
+  // =============================================
+
+    borrarUsuario(id: string) {
+      let url = URL_SERVICIOS + '/usuario/' + id;
+      url += '?token=' + this.token;
+      return this.http.delete(url)
+          .map( resp => {
+
+          swal('Usuario Eliminado', 'El usuario a sido eliminado correctamente', 'success');
+          return true;
+        });
+    }
 }
