@@ -10,10 +10,13 @@ export class SubirArchivoService {
 
   subirArchivo( archivo: File, tipo: string, id: string ) {
 
-    return new Promise( (resolve, reject) => {
 
-      let formData = new FormData();
-      let xhr = new XMLHttpRequest();
+    // tslint:disable-next-line: no-shadowed-variable
+    return new Promise(  (resolve, reject ) => {
+
+      const formData = new FormData();
+      const xhr = new XMLHttpRequest();
+
 
       formData.append( 'imagen', archivo, archivo.name);
 
@@ -32,7 +35,7 @@ export class SubirArchivoService {
         }
       };
 
-      let url = URL_SERVICIOS + '/upload/' + tipo + '/' + id;
+      const url = URL_SERVICIOS + '/upload/' + tipo + '/' + id;
       xhr.open('PUT', url, true);
       xhr.send( formData );
 

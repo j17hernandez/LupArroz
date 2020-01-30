@@ -206,8 +206,6 @@ this._subirArchivoService.subirArchivo( archivo, 'usuarios', id)
       url += '?token=' + this.token;
       return this.http.delete(url)
           .map( resp => {
-
-          swal('Usuario Eliminado', 'El usuario a sido eliminado correctamente', 'success');
           return true;
         });
     }

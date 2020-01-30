@@ -24,7 +24,8 @@ export class SidebarService {
       submenu: [
         {titulo: 'Usuarios', url: '/usuarios', icon: 'fa fa-users'},
         {titulo: 'Hospitales', url: '/hospitales', icon: 'fa  fa-hospital-o'},
-        {titulo: 'Medicos', url: '/medicos', icon: 'fa fa-user-md'}
+        {titulo: 'Medicos', url: '/medicos', icon: 'fa fa-user-md'},
+     //   {titulo: 'Medico', url: '/medico/:id', icon: 'fa fa-user-md'}
       ]
     }
   ];

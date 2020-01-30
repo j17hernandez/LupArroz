@@ -36,7 +36,7 @@ export class UsuariosComponent implements OnInit {
   }
 
 // ==============================================
-// Paginación
+//  Cargar Usuarios -- Paginación
 // =============================================
   cargarUsuarios() {
 
@@ -44,7 +44,7 @@ export class UsuariosComponent implements OnInit {
 
     this._usuarioService.cargarUsuarios(this.desde)
                 .subscribe( (resp: any) => {
-        console.log(resp);
+
         this.totalRegistros = resp.total;
         this.usuarios = resp.usuarios;
         this.cargando = false;
@@ -57,7 +57,6 @@ export class UsuariosComponent implements OnInit {
   // =============================================
   cambiarDesde(valor: number) {
     const desde = this.desde + valor;
-    console.log(desde);
 
     if (desde >= this.totalRegistros) {
       return;
@@ -113,7 +112,7 @@ export class UsuariosComponent implements OnInit {
       this._usuarioService.borrarUsuario( usuario._id)
           .subscribe( borrado => {
 
-            console.log( borrado );
+
             this.cargarUsuarios();
         });
     }
@@ -121,6 +120,9 @@ export class UsuariosComponent implements OnInit {
 
 
    }
+   // ==============================================
+   // Guardar Usuarios
+   // =============================================
 
    guardarUsuario(usuario: Usuario) {
      this._usuarioService.actualizarUsuario(usuario)
