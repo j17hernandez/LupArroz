@@ -30,6 +30,28 @@ export class UsuarioService {
   ) {
         this.cargarStorage();
   }
+// ==============================================
+// Renovar Token
+// =============================================
+
+renuevaToken() {
+  let url = URL_SERVICIOS + '/login/renueva';
+  url += '?token=' + this.token;
+
+  return this.http.get(url)
+        .map((resp: any) => {
+
+        this.token = resp.token;
+        localStorage.setItem('token', this.token);
+        return true;
+        })
+        .catch( err => {
+
+          this.router.navigate(['/login']);
+          swal('No se pudo renovar Token', 'El token no pudo ser renovado' , 'error');
+          return Observable.throwError(err);
+          });
+}
 
   // ==============================================
   // Saber si el usuario está logueado con token
@@ -186,14 +208,6 @@ this._subirArchivoService.subirArchivo( archivo, 'usuarios', id)
     swal('Imagen Actualizada', this.usuario.nombre, 'success' );
     this.guardarStorage(id, this.token, this.usuario, this.menu);
   })
-
-
-//     .then((resp: any) => {
- //
- //
- //     this.guardarStorage(id, this.token, this.usuario);
- //   })
-//
 
   .catch(resp => {
     console.log( resp );

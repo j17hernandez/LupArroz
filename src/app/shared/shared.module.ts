@@ -14,6 +14,7 @@ import { HeaderComponent } from './header/header.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 
 import { NopagefoundComponent } from './nopagefound/nopagefound.component';
+import { ModalUploadComponent } from '../components/modal-upload/modal-upload.component';
 
 
 
@@ -24,13 +25,16 @@ import { NopagefoundComponent } from './nopagefound/nopagefound.component';
     CommonModule,
     RouterModule,
     PipesModule
+
   ],
 
   declarations: [
     NopagefoundComponent,
     BreadcrumbsComponent,
     HeaderComponent,
-    SidebarComponent
+    SidebarComponent,
+    ModalUploadComponent
+
 
   ],
 
@@ -38,7 +42,8 @@ import { NopagefoundComponent } from './nopagefound/nopagefound.component';
     NopagefoundComponent,
     BreadcrumbsComponent,
     HeaderComponent,
-    SidebarComponent
+    SidebarComponent,
+    ModalUploadComponent
   ]
 
 })

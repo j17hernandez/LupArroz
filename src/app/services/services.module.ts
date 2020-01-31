@@ -11,6 +11,7 @@ import {
    UsuarioService,
    LoginGuardGuard,
    AdminGuard,
+   VerificaTokenGuard,
    SubirArchivoService,
    HospitalService,
    MedicoService
@@ -32,6 +33,7 @@ import {
   UsuarioService,
   LoginGuardGuard,
   AdminGuard,
+  VerificaTokenGuard,
   SubirArchivoService,
   ModalUploadService,
   HospitalService,

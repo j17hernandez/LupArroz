@@ -78,7 +78,7 @@ seleccionImage( archivo: File) {
   const urlImagenTemp = reader.readAsDataURL(archivo);
 
 
-  reader.onloadend = () =>  this.imagenTemp = reader.result;
+  reader.onloadend = () =>  this.imagenTemp = reader.result as string;
 }
 
 
