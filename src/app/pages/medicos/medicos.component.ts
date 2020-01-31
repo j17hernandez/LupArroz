@@ -81,7 +81,7 @@ export class MedicosComponent implements OnInit {
 
 
           if (termino.length <= 0) {
-            this.cargarMedicos();
+            this.cargarMedicoPaginacion();
             return;
           }
 
@@ -105,10 +105,7 @@ export class MedicosComponent implements OnInit {
 
             if (borrar) {
               this._medicoService.borrarMedico(medico._id)
-                  .subscribe( borrado => {
-
-                    this.cargarMedicos();
-                });
+                  .subscribe( () =>  this.cargarMedicoPaginacion() );
             }
           });
          }

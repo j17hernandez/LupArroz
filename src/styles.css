@@ -53,3 +53,13 @@
     background-color: rgba(0, 0, 0, 0.4);
     color: white;
 }
+
+.table tr td:hover {
+    background-color: rgba(98, 99, 98, 0.034);
+    color: #000000;
+}
+
+ul li a:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+    color: #ffffff;
+}

@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
+import { UsuarioService } from '../usuario/usuario.service';
 
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class SidebarService {
-
+  menu: any[] = [];
+/*
   menu: any = [
     {
       titulo: 'Principal',
@@ -25,10 +25,19 @@ export class SidebarService {
         {titulo: 'Usuarios', url: '/usuarios', icon: 'fa fa-users'},
         {titulo: 'Hospitales', url: '/hospitales', icon: 'fa  fa-hospital-o'},
         {titulo: 'Medicos', url: '/medicos', icon: 'fa fa-user-md'},
-     //   {titulo: 'Medico', url: '/medico/:id', icon: 'fa fa-user-md'}
+
       ]
     }
   ];
+*/
+  constructor(
+    // tslint:disable-next-line: variable-name
+    public _usuarioService: UsuarioService
+  ) { }
 
-  constructor() { }
+  cargarMenu() {
+    this.menu = this._usuarioService.menu;
+  }
+
+
 }

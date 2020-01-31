@@ -4,6 +4,11 @@ import {HttpClient} from '@angular/common/http';
 import { URL_SERVICIOS } from '../../config/config';
 
 import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
+import { throwError, concat, of } from 'rxjs';
+import { Observable } from 'rxjs/Observable';
+
+
 import swal from 'sweetalert';
 import { Router } from '@angular/router';
 import { SubirArchivoService } from '../subir-archivo/subir-archivo.service';
@@ -14,6 +19,7 @@ export class UsuarioService {
 
   usuario: Usuario;
   token: string;
+  menu: any [] = [];
 
 
   constructor(
@@ -42,9 +48,11 @@ export class UsuarioService {
     if (localStorage.getItem('token')) {
       this.token = localStorage.getItem('token');
       this.usuario = JSON.parse(localStorage.getItem('usuario') );
+      this.menu = JSON.parse(localStorage.getItem('menu') );
     } else {
       this.token = '';
       this.usuario = null;
+      this.menu = [];
     }
   }
 
@@ -52,14 +60,16 @@ export class UsuarioService {
 // Guardar en el local Storage
 // =============================================
 
-  guardarStorage( id: string, token: string, usuario: Usuario ) {
+  guardarStorage( id: string, token: string, usuario: Usuario, menu: any ) {
 
     localStorage.setItem('id', id);
     localStorage.setItem('token', token);
     localStorage.setItem('usuario', JSON.stringify(usuario) );
+    localStorage.setItem('menu', JSON.stringify(menu) );
 
     this.usuario = usuario;
     this.token = token;
+    this.menu = menu;
   }
 
 // ==============================================
@@ -72,6 +82,8 @@ logout() {
 
     localStorage.removeItem('token');
     localStorage.removeItem('usuario');
+    localStorage.removeItem('menu');
+
     this.router.navigate(['/login']);
 }
 
@@ -83,8 +95,8 @@ logout() {
   const url = URL_SERVICIOS + '/login/google';
   return this.http.post( url, { token} )
             .map( (resp: any) => {
+              this.guardarStorage( resp.id, resp.token, resp.usuario, resp.menu );
 
-              this.guardarStorage( resp.id, resp.token, resp.usuario );
               return true;
             });
 
@@ -105,11 +117,13 @@ logout() {
   const url = URL_SERVICIOS + '/login';
   return this.http.post(url, usuario)
             .map((resp: any) => {
-
-              this.guardarStorage( resp.id, resp.token, resp.usuario );
-
+              this.guardarStorage( resp.id, resp.token, resp.usuario, resp.menu);
               return true;
-          });
+          })
+            .catch( err => {
+            swal('Error en el Login', err.error.mensaje , 'error');
+            return Observable.throwError(err);
+            });
 
   }
 
@@ -126,8 +140,11 @@ logout() {
 
               swal('Usuario Creado', usuario.email, 'success');
               return resp.usuario;
-
-               });
+               })
+              .catch( err => {
+              swal(err.error.mensaje, err.error.errors.message , 'error');
+              return Observable.throwError(err);
+                });
   }
 
   // ==============================================
@@ -143,14 +160,17 @@ logout() {
 
             if (usuario._id === this.usuario._id ) {
               const usuarioDB: Usuario = resp.usuario;
-              this.guardarStorage(usuarioDB._id, this.token, usuarioDB);
+              this.guardarStorage(usuarioDB._id, this.token, usuarioDB, this.menu);
             }
-
 
             swal('Usuario Actualizado Correctamente', usuario.nombre, 'success');
             return true;
+          })
 
-          });
+          .catch( err => {
+            swal(err.error.mensaje, err.error.errors.message , 'error');
+            return Observable.throwError(err);
+              });
   }
 
 // ==============================================
@@ -164,7 +184,7 @@ this._subirArchivoService.subirArchivo( archivo, 'usuarios', id)
   .then( (resp: any) => {
     this.usuario.img = resp.usuario.img;
     swal('Imagen Actualizada', this.usuario.nombre, 'success' );
-    this.guardarStorage(id, this.token, this.usuario);
+    this.guardarStorage(id, this.token, this.usuario, this.menu);
   })
 
 
@@ -194,7 +214,7 @@ this._subirArchivoService.subirArchivo( archivo, 'usuarios', id)
   buscarUsuarios(termino: string) {
     const url = URL_SERVICIOS + '/busqueda/coleccion/usuarios/' + termino;
     return this.http.get(url)
-        .map((resp: any) => resp.usuarios  );
+        .map((resp: any) =>  resp.usuarios);
   }
 
   // ==============================================

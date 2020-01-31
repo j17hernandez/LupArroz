@@ -64,6 +64,7 @@ cargarHospitalPaginacion() {
 
     if (desde >= this.totalHospitales) {
       return;
+
   }
 
     if (desde < 0 ) {
